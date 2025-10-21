@@ -1,0 +1,43 @@
+{
+  "agv1": {
+    "start_pos": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "setpoint": {
+      "x": 20.0,
+      "y": 0.0
+    },
+    "mass": 500.0,
+    "pid": {
+      "Kp": 2.8,
+      "Ki": 0.2,
+      "Kd": 0.6
+    }
+  },
+  "agv2": {
+    "start_pos": {
+      "x": 10.0,
+      "y": 2.0
+    },
+    "setpoint": {
+      "x": 10.0,
+      "y": -2.0
+    },
+    "mass": 600.0,
+    "pid": {
+      "Kp": 2.5,
+      "Ki": 0.15,
+      "Kd": 0.5
+    }
+  },
+  "can_bus_config": {
+    "min_delay_ms": 1,
+    "max_delay_ms": 5,
+    "packet_loss_chance": 0.01
+  },
+  "lidar_config": {
+    "range": 2.0,
+    "field_of_view_deg": 60.0
+  }
+}

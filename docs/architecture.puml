@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class main {
+  +main()
+  +runScenario_SimpleMove()
+  +runScenario_ObstacleAvoidance()
+  +runScenario_MotorFault()
+}
+
+class AGV {
+  +id: int
+  +x_pos: double
+  +mass: double
+  +emergency_stop: bool
+  +update()
+  +setPosition()
+}
+
+class PIDController {
+  +Kp, Ki, Kd: double
+  +calculate(): double
+  +reset()
+}
+
+class Motor {
+  -position: double
+  -velocity: double
+  -is_faulted: bool
+  +update()
+  +injectFault()
+  +getPosition(): double
+}
+
+class Lidar {
+  -range: double
+  -fov_rad: double
+  +hasObstacle(): bool
+}
+
+class CANBus {
+  -message_queue: queue
+  +sendMessage()
+  +receiveMessage(): bool
+}
+
+main ..> AGV : Creates and runs
+AGV "1" o-- "1" PIDController
+AGV "1" o-- "1" Motor
+AGV "1" o-- "1" Lidar
+main ..> CANBus : (Conceptual usage)
+
+@enduml

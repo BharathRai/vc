@@ -1,0 +1,11 @@
+# Build artifacts
+/build/
+/out/
+
+# Visual Studio files
+/.vs/
+*.VC.db
+*.suo
+
+# Log files
+*.csv
